@@ -3,11 +3,15 @@ import styled from 'styled-components';
 
 type Props = {
   className?: string;
-  title: string;
+  title?: string;
   children: React.ReactNode;
 };
 
-export function PageTemplate({ className, title, children }: Props) {
+export function PageTemplate({
+  className,
+  title = 'IntersectionObserver example',
+  children,
+}: Props) {
   return (
     <Root className={className}>
       <ResponsiveContainer>
