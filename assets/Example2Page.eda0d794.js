@@ -1,0 +1,1 @@
+import{a as e,j as a,L as t}from"./index.a8534021.js";import{P as r}from"./PageTemplate.1749f30b.js";function s(){return e(r,{title:"Example2",children:["under construction",a(t,{to:"/",children:"TopPage\u306B\u623B\u308B"})]})}export{s as default};
