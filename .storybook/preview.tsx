@@ -1,3 +1,8 @@
+import React from 'react';
+import { DecoratorFn } from '@storybook/react';
+
+import { GlobalStyle } from '../src/presentation/styles/global';
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
@@ -7,3 +12,13 @@ export const parameters = {
     },
   },
 };
+
+const withGlobalStyle: DecoratorFn = (Story, context) => {
+  return (
+    <>
+      <GlobalStyle />
+      <Story {...context} />
+    </>
+  );
+};
+export const decorators = [withGlobalStyle];
