@@ -1,13 +1,33 @@
 import React, { lazy } from 'react';
-import { RouteProps } from 'react-router-dom';
+import { RouteProps, useParams } from 'react-router-dom';
 
 const TopPage = lazy(() => import('src/presentation/pages/TopPage/TopPage'));
 export const ErrorPage = lazy(
   () => import('src/presentation/pages/ErrorPage/ErrorPage'),
 );
-const Page1 = lazy(() => import('src/presentation/pages/Page1/Page1'));
-const Page2 = lazy(() => import('src/presentation/pages/Page2/Page2'));
-const Page3 = lazy(() => import('src/presentation/pages/Page3/Page3'));
+
+const Example1Page = lazy(
+  () => import('src/presentation/pages/Example1Page/Example1Page'),
+);
+const Example2Page = lazy(
+  () => import('src/presentation/pages/Example2Page/Example2Page'),
+);
+const Example3Page = lazy(
+  () => import('src/presentation/pages/Example3Page/Example3Page'),
+);
+function ExamplePages() {
+  const { no } = useParams();
+  switch (no) {
+    case '1':
+      return <Example1Page />;
+    case '2':
+      return <Example2Page />;
+    case '3':
+      return <Example3Page />;
+    default:
+      return <ErrorPage statusCode={404} />;
+  }
+}
 
 export const ROUTES: RouteProps[] = [
   {
@@ -19,15 +39,7 @@ export const ROUTES: RouteProps[] = [
     element: <ErrorPage />,
   },
   {
-    path: '/1',
-    element: <Page1 />,
-  },
-  {
-    path: '/2',
-    element: <Page2 />,
-  },
-  {
-    path: '/3',
-    element: <Page3 />,
+    path: 'examples/:no',
+    element: <ExamplePages />,
   },
 ];
