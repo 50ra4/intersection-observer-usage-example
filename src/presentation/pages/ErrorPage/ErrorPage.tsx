@@ -39,7 +39,7 @@ function ErrorPage({ statusCode }: { statusCode?: StatusCode }) {
         <Section>
           <h2>{title}</h2>
           <p>{detail}</p>
-          {buttonType === 'TopPage' && <Link to="/">TopPage</Link>}
+          {buttonType === 'TopPage' && <Link to="/">TopPageに戻る</Link>}
         </Section>
       </Container>
     </PageTemplate>
